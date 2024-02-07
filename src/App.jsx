@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const todos = [
-    { id: 1, name: "Eat breakfast" },{ id: 2, name: "Do assignment" },{ id: 3, name: "Take a nap" }
-  ]
+  const todos = [{ id: 1, name: "Eat breakfast" }, { id: 2, name: "Do assignment" },{ id: 3, name: "Take a nap" }
+  ];
 
   const [newTodos, setNewTodos] = useState(todos);
   const [newTodo, setNewTodo] = useState("");
@@ -15,7 +14,7 @@ function App() {
 
   function addTodo() {
     if (newTodo.trim() !== "") {
-      setNewTodos(t => [...t, { id: todos.length + 1, name: newTodo }]);
+      setNewTodos(t => [...t, { id: t.length + 1, name: newTodo }]);
       setNewTodo("");
     }
   }
@@ -30,7 +29,7 @@ function App() {
       <div>
         <h1>To-Do-List</h1>
         <input type="text" placeholder="Enter a todo.." value={newTodo} onChange={handleInputChange} />
-        <button className="add-button"  onClick={addTodo} >Add </button>
+        <button className="add-button" onClick={addTodo}>Add</button>
       </div>
       <ul>
         {newTodos.map((todo) => (
@@ -39,8 +38,6 @@ function App() {
           </li>
         ))}
       </ul>
-
-
     </>
   );
 }
